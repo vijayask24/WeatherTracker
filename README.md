@@ -103,8 +103,11 @@ Failure details (if any)<br>
 
 ---
 
+# Framework Architecture
 
----
+Project Structure & Modular Design
+The framework follows a multi-layered BDD pattern to ensure separation between test intent (Gherkin) and technical implementation (Java/Rest-Assured).
+
 
 
 Developed and managed by Sannath vijayakumar <br>
