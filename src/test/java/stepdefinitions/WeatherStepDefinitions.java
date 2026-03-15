@@ -5,8 +5,7 @@ import steps.WeatherSteps;
 import utils.ConfigReader;
 import utils.FileReaderUtil;
 import static org.junit.Assert.assertNotNull;
-import net.serenitybdd.core.Serenity;
-import net.serenitybdd.rest.SerenityRest;
+
 import java.util.*;
 
 import static org.junit.Assert.assertEquals;
@@ -23,14 +22,12 @@ public class WeatherStepDefinitions {
     @Given("the weather API is available")
     public void api_available(){}
 
-//    @When("I request weather data for city {string}")
-//    public void request_city_weather(String city){
-//
-//        weatherSteps.getWeatherForCity(city);
-//    }
-// =============================
-// Load metadata
-// =============================
+    // =============================
+    // AC1: Weather for multiple international cities
+    // =============================
+    // =============================
+    // Load metadata
+    // =============================
 @Given("I load the list of international cities from metadata file")
 public void load_international_cities() {
     cities = FileReaderUtil.readInternationalCities();
@@ -69,9 +66,14 @@ public void load_international_cities() {
     public void verify_city_names() {
         for (int i = 0; i < cities.size(); i++) {
             assertEquals("City mismatch at index " + i, cities.get(i), responseCities.get(i));
-            System.out.println("Verified city: " + responseCities.get(i));
+
         }
     }
+
+    // =============================
+    // AC2: COORDINATES WEATHER
+    // =============================
+
     @When("I request weather data for latitude {double} and longitude {double}")
     public void request_coordinates(double lat,double lon){
         weatherSteps.getWeatherByCoordinates(lat,lon);
@@ -95,6 +97,10 @@ public void load_international_cities() {
         weatherSteps.verifyValidWeatherData();
     }
 
+    // =============================
+    // AC3: Warmest AU capital city
+    // =============================
+
     @When("I retrieve weather data for all Australian capital cities")
     public void retrieve_capital_weather(){
 
@@ -107,8 +113,6 @@ public void load_international_cities() {
         System.out.println("Warmest Australian Capital: " + warmestCity);
     }
 
-
-    //private WeatherSteps weatherSteps = new WeatherSteps();
     // =============================
     // AC4: Load metadata file
     // =============================

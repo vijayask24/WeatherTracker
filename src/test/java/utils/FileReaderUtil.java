@@ -22,12 +22,12 @@ public class FileReaderUtil {
     // =============================
     // Read both US states + international cities
     // =============================
-    public static List<String> readAllLocations() {
-        List<String> allLocations = new ArrayList<>();
-        allLocations.addAll(readStates());
-        allLocations.addAll(readInternationalCities());
-        return allLocations;
-    }
+//    public static List<String> readAllLocations() {
+//        List<String> allLocations = new ArrayList<>();
+//        allLocations.addAll(readStates());
+//        allLocations.addAll(readInternationalCities());
+//        return allLocations;
+//    }
 
     // =============================
     // Generic helper to read any file

@@ -24,22 +24,8 @@ public class WeatherSteps {
         return ConfigReader.getProperty("weather.base.url");
     }
 
-    // =============================
-    // CITY WEATHER
-    // =============================
-
-//    public void getWeatherForCity(String city) {
-//
-//        response =
-//                SerenityRest.given()
-//                        .queryParam("city", city)
-//                        .queryParam("key", getApiKey())
-//                        .when()
-//                        .get(getBaseUrl());
-//    }
-
-    // =============================
-// AC1: Find weather for multiple international cities
+// =============================
+// AC1: Weather for multiple international cities
 // =============================
     public List<String> findWeatherForCities(List<String> cities, String apiKey, String baseUrl) {
 
@@ -69,7 +55,7 @@ public class WeatherSteps {
     }
 
     // =============================
-    // COORDINATES WEATHER
+    // AC2: WEATHER DATA USING COORDINATES
     // =============================
 
     public void getWeatherByCoordinates(double lat, double lon) {
@@ -100,7 +86,7 @@ public class WeatherSteps {
     }
 
     // =============================
-    // AC3: WARMEST CITY
+    // AC3: WARMEST AUSTRALIAN CITY
     // =============================
 
     public String findWarmestCity(List<String> cities) {
@@ -133,8 +119,8 @@ public class WeatherSteps {
     }
 
     // =============================
-// AC4: COLDEST US STATE
-// =============================
+    // AC4: COLDEST US STATE
+    // =============================
 
     public String findColdestState(List<String> cities) {
 
@@ -177,9 +163,7 @@ public class WeatherSteps {
         }
 
         String coldestState = cityStateMap.get(coldestCity);
-
         System.out.println("Coldest State is '" + coldestState + "' (" + minTemp + "°C)");
-
         return coldestState;
     }
 
