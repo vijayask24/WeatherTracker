@@ -108,7 +108,38 @@ Failure details (if any)<br>
 Project Structure & Modular Design
 The framework follows a multi-layered BDD pattern to ensure separation between test intent (Gherkin) and technical implementation (Java/Rest-Assured).
 
-
+```
+WeatherTracker
+│
+├── .idea/                              # IntelliJ project configuration files
+│
+├── src
+│   └── test
+│       ├── java
+│       │   ├── runners                 # Test runner classes for executing Cucumber scenarios
+│       │   │   └── WeatherRunnerTest.java
+│       │   │
+│       │   ├── stepdefinitions         # Cucumber step definition implementations
+│       │   │   └── WeatherStepDefinitions.java
+│       │   │
+│       │   ├── steps                   # Reusable step logic and Serenity step libraries
+│       │   │   └── WeatherSteps.java
+│       │   │
+│       │   └── utils                   # Utility/helper classes (API helpers, config readers, etc.)
+│       │
+│       └── resources
+│           ├── config                  # Environment configuration files
+│           │   └── config.properties
+│           │
+│           ├── features                # Cucumber feature files written in Gherkin
+│           │   └── weather.feature
+│           │
+│           └── metadata                # Serenity reporting configuration
+│               └── serenity.properties
+│
+├── .gitignore                          # Git ignored files configuration
+└── pom.xml                             # Maven project dependencies and build configuration
+```
 
 Developed and managed by Sannath vijayakumar <br>
 reach me at vijayask24@gmail.com
